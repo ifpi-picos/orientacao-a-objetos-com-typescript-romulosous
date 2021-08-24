@@ -17,9 +17,14 @@ export class Curso {
   }
 
   removerDisciplina(disciplinaName: String) {
-    // const index = this.disciplinas.findIndex(
-    //   (disciplina) => disciplina.name === disciplinaName
-    // );
+    const indexDisciplina = this.disciplinas.findIndex(
+      (disciplina) => disciplina.getNome() === disciplinaName
+    );
+    if (indexDisciplina < 0) {
+      return console.log("Disciplina Não cadastrada!");
+    }
+    this.disciplinas.splice(indexDisciplina, 1);
+    return this.disciplinas;
   }
   adicionarDisciplina(disciplina: Disciplina) {
     this.disciplinas.push(disciplina);
